@@ -12,6 +12,7 @@ ExternalProject_Add(frei0r
     COMMAND ${EXEC} echo > <SOURCE_DIR>/test/CMakeLists.txt
     COMMAND ${EXEC} ${CMAKE_COMMAND} -H<SOURCE_DIR> -B<BINARY_DIR>
         ${cmake_conf_args}
+        -DBUILD_TESTING=OFF
         -DWITHOUT_OPENCV=ON
         -DWITHOUT_CAIRO=ON
         -DWITHOUT_GAVL=ON
