@@ -25,7 +25,7 @@ list(APPEND ep
     libdvdnav
     libiconv
     meson-wrap
-    lua5.2
+    luajit
     fribidi
     libxml2
     brotli
@@ -92,20 +92,8 @@ list(APPEND ep
     libpsl
     curl
     mpv
-    mpv-debug-plugin
-    mpv-menu-plugin
     sqlite
-    zenlib
-    libmediainfo
-    mediainfo
     mimalloc
-    qt6-qtbase
-    qt6-qttools
-    qt6-qtsvg
-    boost
-    libtorrent
-    qbittorrent
-    mpc-qt
 )
 foreach(package IN LISTS ep)
     if(NOT ${SINGLE_SOURCE_LOCATION} STREQUAL "")

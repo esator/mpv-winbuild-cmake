@@ -20,7 +20,6 @@ ExternalProject_Add(ffmpeg
         fontconfig
         harfbuzz
         opus
-        speex
         vorbis
         libxml2
         libvpl
@@ -32,8 +31,6 @@ ExternalProject_Add(ffmpeg
         dav1d
         vapoursynth
         rubberband
-        libva
-        openal-soft
         fdk-aac
         opencl
         vulkan
@@ -43,7 +40,6 @@ ExternalProject_Add(ffmpeg
         frei0r
         codec2
         xz
-        libsdl2
         whisper
         x265
     GIT_REPOSITORY https://github.com/Andarwinux/FFmpeg.git
@@ -61,11 +57,10 @@ ExternalProject_Add(ffmpeg
         --target-os=mingw64
         --pkg-config-flags=--static
         --disable-autodetect
-        --disable-decoder=libaom_av1,aac_fixed,ac3_fixed
+        --disable-decoder=libaom_av1,aac_fixed,ac3_fixed,mp1,mp2,mp3,mp3adu,mp3on4
         --disable-doc
         --disable-encoder=ac3_fixed,mp2fixed
         --disable-ffplay
-        --disable-ffprobe
         --disable-inline-asm
         --disable-schannel
         --disable-stripping
@@ -76,10 +71,8 @@ ExternalProject_Add(ffmpeg
         --enable-cross-compile
         --enable-cuda-llvm
         --enable-cuvid
-        --enable-cuvid
         --enable-d3d11va
         --enable-d3d12va
-        --enable-dxva2
         --enable-ffnvcodec
         --enable-frei0r
         --enable-gpl
@@ -107,7 +100,6 @@ ExternalProject_Add(ffmpeg
         --enable-libopus
         --enable-libplacebo
         --enable-librubberband
-        --enable-libspeex
         --enable-libsrt
         --enable-libssh
         --enable-libsvtav1
@@ -123,14 +115,10 @@ ExternalProject_Add(ffmpeg
         --enable-nonfree
         --enable-nvdec
         --enable-nvenc
-        --enable-openal
         --enable-opencl
-        --enable-opengl
         --enable-openssl
         --enable-response-files
         --enable-runtime-cpudetect
-        --enable-sdl2
-        --enable-vaapi
         --enable-vapoursynth
         --enable-version3
         --enable-vulkan
@@ -148,7 +136,7 @@ ExternalProject_Add(ffmpeg
         _FULL_DEBUGINFO=set:1
     BUILD_COMMAND ""
           #${ffmpeg_nosse2avx}
-          COMMAND ${MAKE} ffmpeg.exe
+          COMMAND ${MAKE} ffmpeg.exe ffprobe.exe
     INSTALL_COMMAND ${MAKE} install-headers install-libs install-progs
     LOG_DOWNLOAD 1 LOG_UPDATE 1 LOG_CONFIGURE 1 LOG_BUILD 1 LOG_INSTALL 1
 )
